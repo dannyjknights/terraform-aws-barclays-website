@@ -4,7 +4,7 @@ resource "aws_instance" "web_instance" {
   key_name         = "boundary"
   user_data_base64 = data.cloudinit_config.install.rendered
   tags = {
-    "Name" = "website-ec2"
+    "Name" = "${var.barclays_name}-website"
   }
   network_interface {
     network_interface_id = aws_network_interface.barclays_target_ni.id
